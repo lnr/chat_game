@@ -4,12 +4,21 @@
   "description": "simple chat",
   "main": "index.js",
   "scripts": {
+    "dev": "forever forever.json",
+    "start": "forever start forever.json",
+    "stop": "forever stop gl-quiz",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "lex_rio",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lnr/chat_game/issues"
+  },
   "dependencies": {
     "express": "^4.16.2",
     "ws": "^3.3.2"
+  },
+  "devDependencies": {
+    "forever": "^0.15.3"
   }
 }
