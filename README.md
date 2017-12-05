@@ -6,10 +6,6 @@ Installation
 
 `npm install`
 
-`cp config.example.js config.js`
-
-Then put proper bot token to config.js.
-
 Running in development
 ----------------------
 

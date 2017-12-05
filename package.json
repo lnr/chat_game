@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "forever forever.json",
     "start": "forever start forever.json",
-    "stop": "forever stop gl-quiz",
+    "stop": "forever stop chat",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "lex_rio",
