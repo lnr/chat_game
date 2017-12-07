@@ -1,4 +1,4 @@
-const ws = new WebSocket('ws://localhost:3030');
+const ws = new WebSocket('ws://' + location.host);
 
 ws.onopen = () => console.log("Соединение установлено.");
 
