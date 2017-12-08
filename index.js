@@ -33,6 +33,7 @@ wss.on('connection', (ws, req) => {
             });
             return;
         }
+
         wss.clients.forEach(function each(client) {
             if (client.readyState === WebSocket.OPEN) {
 				/*client !== ws &&*/
