@@ -12,16 +12,36 @@ ws.onclose = event => {
 };
 
 ws.onmessage = event => {
-	let row = document.createElement("div");
-	row.innerHTML = event.data;
-	document.getElementById('content').appendChild(row);
+    let {action, body} = JSON.parse(event.data);
+
+    if (action === 'shake') {
+        alert('Hello, ' + body.name);
+    } else if (action === 'updateField') {
+        console.log(body.coordinates);
+    } else {
+        let row = document.createElement("div");
+        row.innerHTML = body;
+        document.getElementById('content').appendChild(row);
+    }
 };
 
 ws.onerror = error => console.log(error);
 
+const   codes = {37: 'left', 38: 'up', 39: 'right', 40: 'down'},
+        keys = Object.keys(codes);
+
 document.getElementById('input').onkeyup = function(e) {
-	if(e.keyCode === 13) {
-		ws.send(this.value);
+
+    if (keys.indexOf(e.keyCode.toString()) !== -1) {
+        ws.send(JSON.stringify({
+            action: 'move',
+            direction: codes[e.keyCode]
+        }));
+    } else if(e.keyCode === 13) {
+        ws.send(JSON.stringify({
+            action: 'message',
+            body: this.value
+        }));
         this.value = '';
 	}
 };
